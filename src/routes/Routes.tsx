@@ -9,10 +9,15 @@ const Router = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route
+      <Route
           path='/'
           element={<MainPage />}
         />
+        <Route
+          path='/*'
+          element={<MainPage />}
+        />
+
         <Route
           path='/login'
           element={<LoginPage />}
