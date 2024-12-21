@@ -1,8 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 
 const LoginPage = () => {
   const { isLoggedIn, logout, testLogin } = useAuthStore()
+  const navigate = useNavigate()
+
+  const handleTestLogin = () => {
+    alert('테스트 로그인 성공')
+    testLogin()
+    navigate('/')
+  }
 
   return (
     <div>
@@ -15,6 +22,17 @@ const LoginPage = () => {
         </div>
       ) : (
         <div>
+          <div>
+            <input
+              type='text'
+              placeholder='아이디'
+            />
+            <input
+              type='password'
+              placeholder='비밀번호'
+            />
+          </div>
+
           <button
             onClick={() => {
               alert('로그인 기능 미구현 - /store/useAuthStore.ts 파일을 확인해봐요')
@@ -27,7 +45,7 @@ const LoginPage = () => {
           </Link>
 
           <br />
-          <button onClick={testLogin}>테스트로그인 할래요</button>
+          <button onClick={handleTestLogin}>테스트로그인 할래요</button>
         </div>
       )}
     </div>

@@ -11,6 +11,11 @@ const MainPage = () => {
       <div>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
       </div>
+
+      <div>
+        <h2> Color </h2>
+        <div style={{ width: '50px', height: '50px', backgroundColor: '#4A7EDC' }}></div>
+      </div>
     </div>
   )
 }

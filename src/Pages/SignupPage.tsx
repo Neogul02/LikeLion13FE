@@ -11,7 +11,7 @@ const SignupPage = () => {
           type='password'
           placeholder='비밀번호'
         />
-        <button type='submit'>가입하기</button>
+        <button onClick={()=>{alert('회원가입 기능 미구현')}}>가입하기</button>
       </form>
     </div>
   )

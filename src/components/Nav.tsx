@@ -1,18 +1,33 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 
 const Nav = () => {
   const { isLoggedIn, logout } = useAuthStore()
-  // testLogin 함수는 isLoggedIn을 true로 변경함 -> 개발용
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/') // 로그아웃하면 메인페이지로 이동
+  }
 
   return (
-    <div style={{ backgroundColor: 'lightgray' }}>
+    <div style={{ backgroundColor: 'orange' }}>
       <button>
         <Link to='/'>로고 - 메인페이지</Link>
       </button>
 
       {isLoggedIn ? (
-        <button onClick={logout}>로그아웃</button>
+        <button onClick={handleLogout}>로그아웃</button>
+      ) : (
+        <button>
+          <Link to='/login'>로그인</Link>
+        </button>
+      )}
+
+      {isLoggedIn ? (
+        <button>
+          <Link to='/mypage'>마이페이지</Link>
+        </button>
       ) : (
         <button>
           <Link to='/login'>마이페이지</Link>
